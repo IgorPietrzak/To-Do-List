@@ -4,7 +4,7 @@ A simple to-do list node.js web app with a mongodb database.
 
 <img width="400" alt="image" src="https://user-images.githubusercontent.com/96392306/195292746-e872a612-e0e9-44b1-af91-488d2995c79c.png">
 
-##Features
+## Features
 <img width="400" alt="image" src="https://user-images.githubusercontent.com/96392306/195290244-15bfd4fb-cc26-459f-be79-d6cd4b33661a.png">
 
 The heading shown above displays the current date and updates everyday. This is achived by the functions written in the date.js file.
