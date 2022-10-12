@@ -89,14 +89,18 @@ app.post("/", (req, res) => {
     const item = new Item({
         name: itemName
     });
-    if (listName === "Today") {
+    if (listName === getDate()) {
         item.save();
         res.redirect("/");
     } else {
         List.findOne({name: listName}, (err, foundList) => {
-            foundList.items.push(item);
-            foundList.save();
-            res.redirect("/" + listName);
+            if (!err) {
+                foundList.items.push(item);
+                foundList.save();
+                res.redirect("/" + listName);
+            } else {
+                console.log(err);
+            }
         });
     }
 });
@@ -105,7 +109,7 @@ app.post("/", (req, res) => {
 app.post("/delete", (req, res) => {
     const itemId = req.body.checkbox;
     const listName = req.body.hidden;
-    if (listName === "Today") {
+    if (listName === getDate()) {
         Item.findByIdAndRemove(itemId, (err) => {
             if (err) {
                 console.log(err);
